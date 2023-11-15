@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+.color, 
+.yahtzee-bonus-bottom, 
+.bonus-bottom,
+.lower-total-bottom,
+.grand-total-bottom,
+.lower-section-heading {
+    background-color: antiquewhite;
+}
+
+th {
+    border-style: solid;
+    border: 5;
+}
+
+.bonus-div-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.bonus-div {
+    height: 28px;
+    width: 20px;
+    border-style: solid;
+    border: 1;
+}
+
+.lower-section {
+    border-style: solid;
+    border: 10;
+}
+
+.input {
+    width: 30%;
+}

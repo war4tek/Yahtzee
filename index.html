@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9796032b88.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/dice-style.css">
+    <link rel="stylesheet" href="css/upper-section-style.css">
+    <link rel="stylesheet" href="css/lower-section-style.css">
+    <link rel="stylesheet" href="css/game-style.css">
+    <title>Yahtzee</title>
+</head>
+<body>
+    <div class="yahtzee">
+        <div class="yahtzee-title">
+            <h1>Yahtzee
+                <i class="fa-solid fa-dice"></i>
+            </h1>
+        </div>
+    
+        <div class="dice-container">
+            <div class="dice" id="dice-one"></div>
+            <div class="dice" id="dice-two"></div>
+            <div class="dice" id="dice-three"> </div>
+            <div class="dice" id="dice-four"> </div>
+            <div class="dice" id="dice-five"> </div> <br><br>
+            <div class="dice smaller-dice" id="dice-six"></div> 
+        </div>
+
+        <div class="dice-button-container">
+            <button title="Roll Dice"class="roll-button" id="rollDiceBtn">
+                <i class="fa-solid fa-dice"></i>
+            </button>
+            <button title="Reset Dice"class="reset-dice" id="resetDiceBtn">
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </button> 
+     
+            <p id="rollCount"></p>
+        </div>
+
+        <div class="card-buttons">
+              <button title="Reset Card" id="resetCardBtn" class="reset-card">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+        
+          </div>
+        
+        <div class="card">
+            <table class="upper-section">
+             
+                <thead>
+                <tr>
+                    <th class="upper-section-heading">Upper Section</th>
+                    <th class="upper-section-score">How to Score</th>
+                    <th class="columnThree"class="upper-section-game1">Game 1</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Aces
+                    <i class="fa-solid fa-dice-one"></i>
+                    </th>
+                    <th class="color">Count and add only aces</th>
+                    <th>
+                    <input type="number" id="ones-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Twos
+                    <i class="fa-solid fa-dice-two"></i>
+                    </th>
+                    <th class="color">Count and add only twos</th>
+                    <th>
+                    <input type="number" id="twos-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Threes
+                    <i class="fa-solid fa-dice-three"></i>
+                    </th>
+                    <th class="color">Count and add only threes</th>
+                    <th>
+                    <input type="number" id="threes-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Fours
+                    <i class="fa-solid fa-dice-four"></i>
+                    </th>
+                    <th class="color">Count and add only fours</th>
+                    <th>
+                    <input type="number" id="fours-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Fives
+                    <i class="fa-solid fa-dice-five"></i>
+                    </th>
+                    <th class="color">Count and add only fives</th>
+                    <th>
+                    <input type="number" id="fives-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Sixes
+                    <i class="fa-solid fa-dice-six"></i>
+                    </th>
+                    <th class="color">Count and add only sixes</th>
+                    <th>
+                    <input type="number" id="sixes-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="upper-section-total">TOTAL</th>
+                    <th class="upper-section-upperTotal">--------></th>
+                    <th class="color">
+                    <input readonly type="number" id="upper-total-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>BONUS <font size="1"><br>(if total score is 63 or more)</font></th>
+                    <th class="color">SCORE 35</th>
+                    <th>
+                    <input readonly type="number" id="bonus-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="upper-section-upperTotal">TOTAL</th>
+                    <th class="upper-section-upperTotal">--------></th>
+                    <th class="color">
+                    <input readonly type="number" id="upper-grandtotal-input">
+                    </th>
+                </tr>
+
+                <tr></tr><tr></tr><tr></tr>
+
+                <tr>
+                    <th class="lower-section-heading">Lower Section</th>
+                </tr>
+
+                <tr>
+                    <th>3 of a kind</th>
+                    <th class="color">Add total of all dice</th>
+                    <th>
+                        <input type="number" id="three-kind-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>4 of a kind</th>
+                    <th class="color">Add total of all dice</th>
+                    <th>
+                        <input type="number" id="four-kind-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Full House</th>
+                    <th class="color">Score 25</th>
+                    <th>
+                        <input type="number" id="full-house-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>SM Straight</th>
+                    <th class="color">Score 30</th>
+                    <th>
+                        <input type="number" id="small-straight-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>LG Straight</th>
+                    <th class="color">Score 40</th>
+                    <th>
+                        <input type="number" id="large-straight-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>YAHTZEE</th>         
+                    <th class="color">Score 50</th>
+                    <th>
+                        <input type="number" id="yahtzee-input">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Chance</th>
+                    <th class="color">Score total of all dice</th>
+                    <th>
+                        <input type="number" id="chance-input">
+                    </th>
+                </tr>
+
+                <tr>
+                    <th rowspan="2" class="yahtzee-bonus-bottom">Yahtzee  <br>Bonus</th>
+                    <th rowspan="2" class="color">X for each bonus <hr> Score 100 Per X</th>
+                    <th rowspan="2">
+                        <div id="bonus-div-container" class="bonus-div-container">
+                            <div id="first-bonus-div" class="bonus-div">
+                                <i  id="first-bonus" class="fa-solid fa-x hide"></i>
+                            </div>
+                            <div id="second-bonus-div" class="bonus-div">
+                                <i id="second-bonus" class="fa-solid fa-x hide"></i>
+                            </div>
+                            <div id="third-bonus-div" class="bonus-div">
+                                <i id="third-bonus" class="fa-solid fa-x hide"></i>
+                            </div>
+                        </div>
+                        <input readonly type="number" id="yahtzee-bonus-bottom-input">
+                    </th>
+                </tr> 
+                <tr></tr>
+                <tr>
+                    <th class="lower-total-bottom">Total (lower)</th>
+                    <th class="color">----------></th>
+                    <th class="color">
+                        <input readonly type="number" id="lower-total-bottom-input">
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th class="upper-total-bottom">Total (upper)</th>
+                    <th class="color">----------></th>
+                    <th>
+                        <input readonly type="number" id="upper-total-bottom-input">
+                    </th>
+                </tr>
+                    
+                <tr>
+                    <th class="grand-total-bottom">Grand Total</th>
+                    <th class="color">----------></th>
+                    <th class="color">
+                        <input readonly type="number" id="grand-total-bottom-input" >
+                    </th>
+                </tr>
+                </tbody>
+                </table> 
+                <br>
+            </div>
+    </div>
+</div>
+    <script src="js/dice.js"></script>
+    <script src="js/game.js"></script>
+
+</body>
+</html>
