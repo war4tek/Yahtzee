@@ -44,8 +44,6 @@ let upperGrandTotal = 0;
 let bonusYahtzee = 0;
 let gameOver = false;
 
-
-
 function calculateUpperSection(){
     let ones = Number(onesInput.value);
     let twos = Number(twosInput.value);
@@ -69,7 +67,6 @@ function calculateUpperSection(){
 
     upperGrandTotalInput.value = upperGrandTotal;
 }
-
 
 function calculateLowerSection(){
     let threeKind = Number(threeKindInput.value);
