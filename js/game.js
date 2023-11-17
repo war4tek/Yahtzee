@@ -1,8 +1,4 @@
-/**
- * Julian Apodaca
- * 11-09-2022
- * Digital score card for Yahtzee
- */
+// Digital score card for Yahtzee
 
 const yahtzeeDiv = document.getElementById('yahtzee');
 const onesInput = document.getElementById('ones-input');

@@ -1,8 +1,4 @@
-/**
- * Julian Apodaca
- * 11-09-2022
- * Logic for a set of yahtzee dice. 
- */
+//Logic for a set of yahtzee dice. 
 
 const rollDiceBtn = document.getElementById('rollDiceBtn');
 const diceOne = document.getElementById('dice-one');
