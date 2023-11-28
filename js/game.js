@@ -11,11 +11,8 @@ const grandTotalBottomInput = document.getElementById('grand-total-bottom-input'
 const bonusDivContainer = document.getElementById('bonus-div-container');
 const yahtzeeBonusTotalInput = document.getElementById('yahtzee-bonus-bottom-input');
 
-const firstBonusDiv = document.getElementById('first-bonus-div');
 const firstBonus = document.getElementById('first-bonus');
-const secondBonusDiv = document.getElementById('second-bonus-div');
 const secondBonus = document.getElementById('second-bonus');
-const thirdBonusDiv = document.getElementById('third-bonus-div');
 const thirdBonus = document.getElementById('third-bonus');
 
 const resetCardBtn = document.getElementById('resetCardBtn');
@@ -23,7 +20,6 @@ const saveGameBtn = document.getElementById('saveGameBtn');
 
 let upperGrandTotal = 0;
 let bonusYahtzee = 0;
-let gameOver = false;
 
 function calculateUpperSection(){
     let ones = Number($('#ones-input').val());
@@ -57,10 +53,9 @@ function calculateLowerSection(){
     let largeStraight = Number($('#large-straight-input').val());
     let yahtzee = Number($('#yahtzee-input').val());
     let chance = Number($('#chance-input').val());
-    let upperTotal = Number(upperTotalBottomInput.value);
-
-    let lowerTotal = threeKind+fourKind+fullHouse+smallStraight+largeStraight+yahtzee+chance+bonusYahtzee;
     
+    let upperTotal = Number(upperTotalBottomInput.value);
+    let lowerTotal = threeKind+fourKind+fullHouse+smallStraight+largeStraight+yahtzee+chance+bonusYahtzee;
     let grandTotal = lowerTotal + upperGrandTotal;
 
     lowerTotalBottomInput.value = lowerTotal;
@@ -78,67 +73,67 @@ $(document).ready(function(){
 
     $('.calculate').change(function(e){
         calculateScore();
-    })
+    });
 
-firstBonusDiv.addEventListener('click', ()=> {
-    if(firstBonus.classList.contains('hide')){
-        firstBonus.classList.remove('hide');
-        bonusYahtzee += 100;
-    }else{
+    $('#first-bonus-div').click(function () {
+        if(firstBonus.classList.contains('hide')){
+            firstBonus.classList.remove('hide');
+            bonusYahtzee += 100;
+        }else{
+            firstBonus.classList.add('hide');
+            bonusYahtzee -= 100;
+        }
+        yahtzeeBonusTotalInput.value = bonusYahtzee;
+        calculateScore();
+    });
+
+    $('#second-bonus-div').click(function () {    
+        if(secondBonus.classList.contains('hide')){
+            secondBonus.classList.remove('hide');
+            bonusYahtzee += 100;
+        }else{
+            secondBonus.classList.add('hide');
+            bonusYahtzee -= 100;
+        }
+        yahtzeeBonusTotalInput.value = bonusYahtzee;
+        calculateScore();
+    });
+
+    $('#third-bonus-div').click(function () { 
+        if(thirdBonus.classList.contains('hide')){
+            thirdBonus.classList.remove('hide');
+            bonusYahtzee += 100;
+        }else{
+            thirdBonus.classList.add('hide');
+            bonusYahtzee -= 100;
+        }
+        yahtzeeBonusTotalInput.value = bonusYahtzee;
+        calculateScore();
+    });
+
+    
+    $('#resetCardBtn').click(function () { 
+        const inputFields = document.getElementsByTagName('input');
+        for(inputField of inputFields){
+            inputField.value = ``;
+        }
+    
+        upperTotalInput.value = 0;
+        upperGrandTotalInput.value = 0;
+    
+        yahtzeeBonusTotalInput.value = 0;
+        lowerTotalBottomInput.value = 0;
+        upperTotalBottomInput.value = 0;
+        grandTotalBottomInput.value = 0;
+    
         firstBonus.classList.add('hide');
-        bonusYahtzee -= 100;
-    }
-    yahtzeeBonusTotalInput.value = bonusYahtzee;
-    calculateScore();
-});
-
-secondBonusDiv.addEventListener('click', () => {
-    if(secondBonus.classList.contains('hide')){
-        secondBonus.classList.remove('hide');
-        bonusYahtzee += 100;
-    }else{
         secondBonus.classList.add('hide');
-        bonusYahtzee -= 100;
-    }
-    yahtzeeBonusTotalInput.value = bonusYahtzee;
-    calculateScore();
-});
-
-thirdBonusDiv.addEventListener('click', () =>{
-    if(thirdBonus.classList.contains('hide')){
-        thirdBonus.classList.remove('hide');
-        bonusYahtzee += 100;
-    }else{
         thirdBonus.classList.add('hide');
-        bonusYahtzee -= 100;
-    }
-    yahtzeeBonusTotalInput.value = bonusYahtzee;
+    
+        bonusYahtzee = 0;
+    });
+
     calculateScore();
-});
-
-resetCardBtn.addEventListener('click', ()=> {
-    const inputFields = document.getElementsByTagName('input');
-    for(inputField of inputFields){
-        inputField.value = ``;
-    }
-
-    upperTotalInput.value = 0;
-    upperGrandTotalInput.value = 0;
-
-    yahtzeeBonusTotalInput.value = 0;
-    lowerTotalBottomInput.value = 0;
-    upperTotalBottomInput.value = 0;
-    grandTotalBottomInput.value = 0;
-
-    firstBonus.classList.add('hide');
-    secondBonus.classList.add('hide');
-    thirdBonus.classList.add('hide');
-
-    bonusYahtzee = 0;
-
-});
-
-calculateScore();
 });
 
 
