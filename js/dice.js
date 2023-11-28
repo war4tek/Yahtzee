@@ -1,6 +1,5 @@
 //Logic for a set of yahtzee dice. 
 
-const rollDiceBtn = document.getElementById('rollDiceBtn');
 const diceOne = document.getElementById('dice-one');
 const diceTwo = document.getElementById('dice-two');
 const diceThree = document.getElementById('dice-three');
@@ -8,6 +7,8 @@ const diceFour = document.getElementById('dice-four');
 const diceFive  = document.getElementById('dice-five');
 const diceSix = document.getElementById('dice-six');
 const rollCount = document.getElementById('rollCount');
+
+const rollDiceBtn = document.getElementById('rollDiceBtn');
 const resetDiceBtn = document.getElementById('resetDiceBtn');
 
 let numberOfRolls = 0;

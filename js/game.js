@@ -1,24 +1,9 @@
 // Digital score card for Yahtzee
 
 const yahtzeeDiv = document.getElementById('yahtzee');
-const onesInput = document.getElementById('ones-input');
-const twosInput = document.getElementById('twos-input');
-const threesInput = document.getElementById('threes-input');
-const foursInput = document.getElementById('fours-input');
-const fivesInput = document.getElementById('fives-input');
-const sixesInput = document.getElementById('sixes-input');
-
 const upperTotalInput = document.getElementById('upper-total-input');
 const upperGrandTotalInput = document.getElementById('upper-grandtotal-input');
 const bonusInput = document.getElementById('bonus-input');
-
-const threeKindInput = document.getElementById('three-kind-input');
-const fourKindInput = document.getElementById('four-kind-input');
-const fullHouseInput = document.getElementById('full-house-input');
-const smallInput = document.getElementById('small-straight-input');
-const largeInput = document.getElementById('large-straight-input');
-const yahtzeeInput = document.getElementById('yahtzee-input');
-const chanceInput = document.getElementById('chance-input');
 
 const lowerTotalBottomInput = document.getElementById('lower-total-bottom-input');
 const upperTotalBottomInput = document.getElementById('upper-total-bottom-input');
@@ -41,12 +26,12 @@ let bonusYahtzee = 0;
 let gameOver = false;
 
 function calculateUpperSection(){
-    let ones = Number(onesInput.value);
-    let twos = Number(twosInput.value);
-    let threes = Number(threesInput.value);
-    let fours = Number(foursInput.value);
-    let fives = Number(fivesInput.value);
-    let sixes = Number(sixesInput.value);
+    let ones = Number($('#ones-input').val());
+    let twos = Number($('#twos-input').val());
+    let threes = Number($('#threes-input').val());
+    let fours = Number($('#fours-input').val());
+    let fives = Number($('#fives-input').val());
+    let sixes = Number($('#sixes-input').val());
 
     let bonus = 35;
 
@@ -65,13 +50,13 @@ function calculateUpperSection(){
 }
 
 function calculateLowerSection(){
-    let threeKind = Number(threeKindInput.value);
-    let fourKind = Number(fourKindInput.value);
-    let fullHouse = Number(fullHouseInput.value);
-    let smallStraight = Number(smallInput.value);
-    let largeStraight = Number(largeInput.value);
-    let yahtzee = Number(yahtzeeInput.value);
-    let chance = Number(chanceInput.value);
+    let threeKind = Number($('#three-kind-input').val());
+    let fourKind = Number($('#four-kind-input').val());
+    let fullHouse = Number($('#full-house-input').val());
+    let smallStraight = Number($('#small-straight-input').val());
+    let largeStraight = Number($('#large-straight-input').val());
+    let yahtzee = Number($('#yahtzee-input').val());
+    let chance = Number($('#chance-input').val());
     let upperTotal = Number(upperTotalBottomInput.value);
 
     let lowerTotal = threeKind+fourKind+fullHouse+smallStraight+largeStraight+yahtzee+chance+bonusYahtzee;
@@ -89,24 +74,11 @@ function calculateScore(){
     calculateLowerSection();
 }
 
-onesInput.addEventListener('input', calculateScore);
-twosInput.addEventListener('input', calculateScore);
-threesInput.addEventListener('input', calculateScore);
-foursInput.addEventListener('input', calculateScore);
-fivesInput.addEventListener('input', calculateScore);
-sixesInput.addEventListener('input', calculateScore);
+$(document).ready(function(){
 
-threeKindInput.addEventListener('input', calculateScore);
-fourKindInput.addEventListener('input', calculateScore);
-fullHouseInput.addEventListener('input', calculateScore);
-smallInput.addEventListener('input', calculateScore);
-largeInput.addEventListener('input', calculateScore);
-yahtzeeInput.addEventListener('input', calculateScore);
-chanceInput.addEventListener('input', calculateScore);
-
-lowerTotalBottomInput.addEventListener('input', calculateScore);
-upperTotalBottomInput.addEventListener('input', calculateScore);
-grandTotalBottomInput.addEventListener('input', calculateScore);
+    $('.calculate').change(function(e){
+        calculateScore();
+    })
 
 firstBonusDiv.addEventListener('click', ()=> {
     if(firstBonus.classList.contains('hide')){
@@ -167,3 +139,6 @@ resetCardBtn.addEventListener('click', ()=> {
 });
 
 calculateScore();
+});
+
+
