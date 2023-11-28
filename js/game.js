@@ -1,19 +1,19 @@
 // Digital score card for Yahtzee
 
 const yahtzeeDiv = document.getElementById('yahtzee');
-const upperTotalInput = document.getElementById('upper-total-input');
-const upperGrandTotalInput = document.getElementById('upper-grandtotal-input');
 const bonusInput = document.getElementById('bonus-input');
 
-const lowerTotalBottomInput = document.getElementById('lower-total-bottom-input');
-const upperTotalBottomInput = document.getElementById('upper-total-bottom-input');
-const grandTotalBottomInput = document.getElementById('grand-total-bottom-input');
 const bonusDivContainer = document.getElementById('bonus-div-container');
-const yahtzeeBonusTotalInput = document.getElementById('yahtzee-bonus-bottom-input');
-
 const firstBonus = document.getElementById('first-bonus');
 const secondBonus = document.getElementById('second-bonus');
 const thirdBonus = document.getElementById('third-bonus');
+
+const upperTotalInput = document.getElementById('upper-total-input');
+const upperGrandTotalInput = document.getElementById('upper-grandtotal-input');
+const lowerTotalBottomInput = document.getElementById('lower-total-bottom-input');
+const upperTotalBottomInput = document.getElementById('upper-total-bottom-input');
+const grandTotalBottomInput = document.getElementById('grand-total-bottom-input');
+const yahtzeeBonusTotalInput = document.getElementById('yahtzee-bonus-bottom-input');
 
 const resetCardBtn = document.getElementById('resetCardBtn');
 const saveGameBtn = document.getElementById('saveGameBtn');
@@ -29,11 +29,10 @@ function calculateUpperSection(){
     let fives = Number($('#fives-input').val());
     let sixes = Number($('#sixes-input').val());
 
-    let bonus = 35;
-
+    const bonus = 35;
     let upperTotal = ones + twos + threes + fours + fives + sixes;
     upperTotalInput.value = upperTotal;
-
+    
     if (upperTotal >= 63) {
         upperGrandTotal = upperTotal + bonus;
         bonusInput.value = bonus;
@@ -43,6 +42,7 @@ function calculateUpperSection(){
     }
 
     upperGrandTotalInput.value = upperGrandTotal;
+    //$('#upper-grandtotal-input').value = upperGrandTotal;
 }
 
 function calculateLowerSection(){
@@ -71,7 +71,7 @@ function calculateScore(){
 
 $(document).ready(function(){
 
-    $('.calculate').change(function(e){
+    $('.calculate').change(function( ){
         calculateScore();
     });
 
@@ -112,19 +112,9 @@ $(document).ready(function(){
     });
 
     
-    $('#resetCardBtn').click(function () { 
-        const inputFields = document.getElementsByTagName('input');
-        for(inputField of inputFields){
-            inputField.value = ``;
-        }
-    
-        upperTotalInput.value = 0;
-        upperGrandTotalInput.value = 0;
-    
-        yahtzeeBonusTotalInput.value = 0;
-        lowerTotalBottomInput.value = 0;
-        upperTotalBottomInput.value = 0;
-        grandTotalBottomInput.value = 0;
+    $('#resetCardBtn').click(function () {       
+        $(".calculate").val(``);  //clear all input fields
+        $(".total").val(0);       //clear all total input fields
     
         firstBonus.classList.add('hide');
         secondBonus.classList.add('hide');
